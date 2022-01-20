@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "android.sample.com.movieapp"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //Android packages
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appcompat_version}"
+    implementation "androidx.core:core-ktx:${rootProject.ext.core_version}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraint_version}"
+    implementation "androidx.recyclerview:recyclerview:${rootProject.ext.recycler_version}"
+    implementation "androidx.cardview:cardview:${rootProject.ext.card_version}"
+    implementation "android.arch.lifecycle:extensions:${rootProject.ext.arch_version}"
+    annotationProcessor "android.arch.lifecycle:compiler:${rootProject.ext.arch_version}"
+
+    //Testing
+    testImplementation "junit:junit:${rootProject.ext.junit_version}"
+    androidTestImplementation "androidx.test:runner:${rootProject.ext.runner_version}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${rootProject.ext.espresso_version}"
+
+    //Network
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.ext.okhttp3_version}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.okhttp3_version}"
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit2_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofit2_version}"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:${rootProject.ext.picasso_version}"
+
+    //Anko
+    implementation "org.jetbrains.anko:anko:${rootProject.ext.anko_version}"
+}

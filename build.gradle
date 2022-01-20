@@ -1,0 +1,51 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.20'
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+ext {
+    //Android
+    appcompat_version = "1.1.0-alpha03"
+    core_version = "1.1.0-alpha05"
+    arch_version = "1.1.1"
+    constraint_version = "1.1.2"
+    recycler_version = "1.1.0-alpha03"
+    card_version = "1.0.0"
+    picasso_version = "2.71828"
+
+    //Testing
+    junit_version = "4.12"
+    runner_version = "1.1.0-alpha4"
+    espresso_version = "3.1.0-alpha4"
+
+    // Network
+    okhttp3_version = "3.9.0"
+    retrofit2_version = "2.3.0"
+
+    //Anko
+    anko_version = "0.10.8"
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
